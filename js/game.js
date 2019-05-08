@@ -45,13 +45,20 @@ const catchTheLight = {
         setInterval(() => {
                 this.clear()
                 this.framesCounter++;
-                if (this.framesCounter % 100 === 0) {
+                if (this.framesCounter % 150 === 0) {
                     this.generateLights();
                 }
+
+                if (this.framesCounter % 30 === 0){
+                    this.player.barrier = !this.player.barrier
+                }
+                this.isCollision()
+                
                 this.drawAll()
                 this.moveAll();
         }, 30)
     },
+    
     reset: function(){
         this.framesCounter = 0;
         this.player = new Player(this.ctx,this.canvasSize) 
@@ -78,16 +85,56 @@ const catchTheLight = {
     },
     setEventListeners: function () {
         const upBtn = document.getElementById('up-btn')
-        console.log(upBtn)
+        const rightBtn = document.getElementById('to-right-btn')
+        const leftBtn = document.getElementById('to-left-btn')
+        
         // const toRightBtn = document.getElementsById('to-right-btn')
         // const toLeftBtn = document.getElementsById('to-left-btn')
         upBtn.onclick =  () => {
             
-            this.player.speedUp()
+            if(this.player.posY - 150 < this.canvasSize.h) this.player.goUp()
         }
+        rightBtn.onclick =  () => {
+            
+            if(this.player.posX + 150 < this.canvasSize.w) this.player.goRight()
+        }
+        leftBtn.onclick =  () => {
+            
+            if(this.player.posX -150 > 0) this.player.goLeft()
+
+        }
+       
         // buttons[1].onclick = () => this.ball.speedDown()
         // buttons[2].onclick = () => this.ball.bounceNow()
         // buttons[3].onclick = () => this.ball.addGravity()
     },
+    isCollision: function() {
+        
+        this.lights.forEach((light, index) => {
+                
+                  if (this.player.barrier && 
+                     this.player.posX < light.posX + light.width/3 &&
+                     this.player.posX + this.player.w/3 > light.posX){
+                        
+                        light.changeX()
 
+                         }
+                    if (this.player.barrier &&
+                    this.player.posY < light.posY + light.height/3 &&
+                    this.player.posY + this.player.h/3 > light.posY){
+                        light.changeY()
+                    }
+                    // if(
+                    //      this.player.posX < light.posX + light.width/3 &&
+                    //      this.player.posX + this.player.w/3 > light.posX &&
+                    //      this.player.posY < light.posY + light.height/3 &&
+                    //      this.player.posY + this.player.h/3 > light.posY
+                    //  ){
+                    //      console.log("choca")
+                    //      // alert("Pum!")
+                    //      this.lights.splice(index, 1)
+                    //  }
+           
+         });
+       },
 }

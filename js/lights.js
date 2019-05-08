@@ -34,6 +34,10 @@ class Light{
         this.posYmin = 50
         this.posYmax = 200
 
+        this.lightsRadio = this.width / 2
+        this.cx2 =  this.posX + this.width / 2 
+        this.cy2 =  this.posY + this.height / 2
+
         this.velX = Math.floor(Math.random() * (5 - (-5)) + (-5))
         this.velY = 1
         
@@ -41,17 +45,18 @@ class Light{
     }
 
     draw() {
-       
+        
         this.ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height)
     }
+
     
     move() {
-        if (this.velX===0){
-            this.velX === 1
-        }
-        this.posX += this.velX
+         if (this.velX===0){
+             this.velX === 1
+         }
+        // this.posX += this.velX
         this.posY += this.velY
-        this.velY += this.gravity
+        // this.velY += this.gravity
 
         if (this.posY <= 0 || this.posY > this.canvasSize.h - 100) this.changeY()
         if (this.posX <= 0 || this.posX > this.canvasSize.w - 100) this.changeX()
