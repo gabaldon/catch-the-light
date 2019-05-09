@@ -15,27 +15,35 @@ body{
     margin: 0 auto;
     padding: 40px 20px 0 20px
 }
-.direction-buttons{
+
+
+.you-win{
     display:none;
-    bottom:0;
-    padding: 0 30px
+    margin: 0 auto;
+    width: 375px;
+    height: 667;
     
 }
-.direction-buttons img{
-    width: 70%;
-}
-.up-btn{
-    width:80px
-}
-.dflex{
-    width:50%
-}
-.fade-in {
-    animation: fadeIn 1.0s ease forwards;
+#you-loose {
+    width: 100%;
+    display: none;
+    margin: 0 auto;
+    padding: 40px 20px 0 20px
     
-  }
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+}
+.exit-btn{
+    width: 75%;
+    margin: 0 auto;
+}
+.play-again-btn{
+    width: 75%;
+    margin: 0 auto;
+    
+}
+#gameOver-canvas{
+    width: 375px;
+    height: 667;
+}
+
 
 

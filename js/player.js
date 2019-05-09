@@ -5,6 +5,7 @@ class Player {
         this.img.src = "./images/pink-neon-circle.svg"
         this.ctx = ctx
         this.barrier = false
+        this.gameOver = false
        
         this.canvasSizes = {
             w: sizes.w,
@@ -23,7 +24,8 @@ class Player {
         this.velX = 2
         this.velY = 1
 
-        this.direction = "R"
+        this.directionX = "R"
+        this.directionY = "Dw"
 
         this.gravity = .05
     }
@@ -33,29 +35,35 @@ class Player {
         this.posY += this.velY
         this.velY += this.gravity
 
-        if (this.posY <= 0 || this.posY > this.canvasSizes.h - 100) this.changeY()
+        if (this.posY <= 5) this.posY = 5
+        if (this.posY > this.canvasSizes.h - 100) this.changeY()
         if (this.posX <= 0 || this.posX > this.canvasSizes.w - 100) this.changeX()
 
-        if (this.barrier) {
-            this.img.src = "./images/white-neon-circle.svg"
+        if (!this.gameOver) {
+            if (this.barrier) {
+                this.img.src = "./images/white-neon-circle.svg"
+            }
+            else this.img.src = "./images/pink-neon-circle.svg"
         }
-        else this.img.src = "./images/pink-neon-circle.svg"
-        
+       
+        //change player image when almost game is over
+      
 
         this.ctx.drawImage(this.img, this.posX, this.posY, this.w, this.h)
     }
 
     changeY() {
         this.velY *= -1
-        
+        if (this.directionX === "Dw") this.directionX = "Up"
+        else this.directionX = "Dw"
     }
 
 
 
     changeX() {
         this.velX *= -1
-        if (this.direction === "R") this.direction = "L"
-        else this.direction = "R"
+        if (this.directionX === "R") this.directionX = "L"
+        else this.directionX = "R"
     }
 
     // speedUp() {
@@ -64,20 +72,20 @@ class Player {
     // }
     
     goUp() {
-        this.posY /= 1.5
+        this.posY -= 20
 
-        // if (this.posY <= 0 || this.posY > this.canvasSizes.h - 100) this.changeY()
+         if (this.directionY === "Dw") this.changeY()
         
     }
     goRight(){
        
         this.posX += 20
-        if (this.direction === "L") this.changeX()
+        if (this.directionX === "L") this.changeX()
         // if (this.posX <= 0 || this.posX > this.canvasSizes.w - 100) this.changeX()
     }
     goLeft(){
         this.posX -= 20
-        if (this.direction === "R") this.changeX()
+        if (this.directionX === "R") this.changeX()
         // if (this.posX <= 0 || this.posX > this.canvasSizes.w - 100) this.changeX()
     }
 

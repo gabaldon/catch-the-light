@@ -8,6 +8,7 @@
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/lights.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="stylesheets/stylesheet.css">
     <title>Catch The Light</title>
@@ -24,20 +25,35 @@
                 <img id= "start-button" class ="start-button" src="images/start-btn.svg" alt="start button">
             </div>
         </div>
+       
     </div>
-    <div id="direction-buttons" class="direction-buttons">
-        <div class="container">  
-                <!-- <div class="d-flex justify-content-center">
-                    <img id="up-btn" class="up-btn" src="images/up-button.svg" alt="up-btn" >
-                        <img id="stop-btn" class="logo-img" src="images/stop-button.svg" alt="stop-btn" >
-                </div> -->
-            <div class="d-flex justify-content-center">
-                <img id="to-left-btn" class="left.btn" src="images/to-left-button.svg" alt="to-left-btn" >
-                <img id="to-right-btn" class="right-btn" src="images/to-right-button.svg" alt="to-right-btn" >
-                <img id="up-btn" class="up-btn" src="images/up-button.svg" alt="up-btn" >
+    <div id="you-win" class="you-win">
+        
+        <img src="images/you-win.svg" alt="you-win">
+        <img src="images/play-again-btn.svg" alt="Play again question mark">
+        <img src="images/play-again-logo-btn.svg" alt="Play again logo">
+        <img src="images/exit-btn.svg" alt="Exit logo">
+    </div>
+    <div id = "gameOver-canvas">
+    <div id ="you-loose" class="container">
+            <div class="row justify-content-center">
+                <div class= "col">
+                    <img src="images/game-over.svg" alt="you-win">
+                </div>
             </div>
-        </div>
+            <div class="row justify-content-center">
+                <div class= "col">
+                    <img id="play-again-btn" class="play-again-btn" src="images/play-again.svg" alt="Play again">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                    <div class= "col">
+                        <img id="exit-btn" class="exit-btn" src="images/exit-btn.svg" alt="exit">
+                    </div>
+            </div>        
     </div>
+    </div>         
+   
     <div id="game-board">
         <canvas id="mycanvas"></canvas>
     </div>
