@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/lights.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="stylesheets/stylesheet.css">
@@ -27,30 +27,35 @@
         </div>
        
     </div>
-    <div id="you-win" class="you-win">
-        
-        <img src="images/you-win.svg" alt="you-win">
-        <img src="images/play-again-btn.svg" alt="Play again question mark">
-        <img src="images/play-again-logo-btn.svg" alt="Play again logo">
-        <img src="images/exit-btn.svg" alt="Exit logo">
+
+
+    <div id = "win-canvas">
+        <div id="win" class="container">
+            <div class="row justify-content-center">
+                <div class= "col">
+                    <img id="you-win-logo" class="you-win-logo" src="images/you-win-logo.svg" alt="You win">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class= "col">
+                    <img id="play-again-btn-win" class="play-again-btn" src="images/play-again.svg" alt="Play again">
+            </div>
+        </div>       
     </div>
+    </div>  
+
     <div id = "gameOver-canvas">
     <div id ="you-loose" class="container">
             <div class="row justify-content-center">
                 <div class= "col">
-                    <img src="images/game-over.svg" alt="you-win">
+                    <img id="game-over-logo" class="game-over-logo" src="images/game-over.svg" alt="you-loose">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class= "col">
                     <img id="play-again-btn" class="play-again-btn" src="images/play-again.svg" alt="Play again">
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                    <div class= "col">
-                        <img id="exit-btn" class="exit-btn" src="images/exit-btn.svg" alt="exit">
-                    </div>
-            </div>        
+            </div>       
     </div>
     </div>         
    

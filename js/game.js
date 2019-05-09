@@ -1,11 +1,23 @@
 window.onload = function() {
+    
     document.getElementById("start-button").onclick = function() {
       document.getElementById("start-button").style.display = "none"
       document.getElementById("init").style.display = "none"
-      
+    }
+      document.getElementById("play-again-btn").onclick =() =>{
+        document.getElementById("you-loose").style.display = "none"
+        catchTheLight.stop()
+        catchTheLight.init("mycanvas")
+        }
+        document.getElementById("play-again-btn-win").onclick =() =>{
+            document.getElementById("win").style.display = "none"
+            catchTheLight.stop()
+            catchTheLight.init("mycanvas")
+        }
       startGame()
-    };
-  }
+};
+
+
 function startGame() {
     catchTheLight.init('mycanvas')
 }
@@ -17,20 +29,24 @@ const catchTheLight = {
     ctx: undefined,
     player: undefined,
     light:undefined,
-    
+    win: false,
     canvasSize: {
         w: undefined,
         h: undefined
-    },
+    },    
+
     init: function (id) {
         this.canvasDom = document.getElementById(id)
         this.ctx = this.canvasDom.getContext('2d')
         this.canvasSize.w = 375
         this.canvasSize.h = 667
+        this.audio = new Audio(),
+        this.audio.src = "audio/cucu-complexity.mp3"
+        this.start()
         this.setDimensions()
         this.setHandlers()
-        this.start()
         this.setEventListeners()
+        
     },
     setDimensions: function () {
         this.canvasDom.setAttribute('width', this.canvasSize.w)
@@ -41,38 +57,33 @@ const catchTheLight = {
     },
     start: function (){
         this.reset();
-        setInterval(() => {
+        this.audio.play();
+
+        this.interval = setInterval(() => {
                 this.clear()
                 this.framesCounter++;
-                if (this.framesCounter % 155 === 0) {
+                if (this.framesCounter % 155 === 0 && !this.win) {
                     this.generateLights();
                 }
-
-                // this.controlBarrier()
-
-
-                // if (this.changes <= 10){
-                    if (this.framesCounter % 200 === 0){
+                if (this.framesCounter % 200 === 0){
                     this.player.barrier = !this.player.barrier
                     this.changes++
-                    }
-                // } else if (this.changes <= 20){
-                //     if (this.framesCounter % 50 === 0){
-                //     this.player.barrier = !this.player.barrier
-                //     this.changes++
-                //     }
-                // } else if (this.changes <= 50){
-                //     bla bla
-                //     this.changes++
-                // }
+                }
+                
+                
                 this.drawAll()
                 this.moveAll();
+
+                if (this.audio.ended) {
+                    this.audio.currentTime = 0
+                    this.audio.play()
+                }
 
                 if (!this.player.gameOver){
                     this.isCollision()
                 }
                 
-                if (this.player.w <= 20 && this.player.h <=20){
+                if (this.player.w <= 20 && this.player.h <=20 && !this.player.youWin){
                         this.player.gameOver = true
                         this.player.img.src = "images/white-light.svg"
                         this.player.w = 100
@@ -81,6 +92,9 @@ const catchTheLight = {
                     setTimeout (this.gameOver,3000)
 
                 console.log("igual a 10px")
+                }
+                if (this.framesCounter % 3000 === 0 && !this.player.gameOver){
+                    this.youWin()
                 }
                 
                 
@@ -95,6 +109,7 @@ const catchTheLight = {
         this.framesCounter = 0;
         this.player = new Player(this.ctx,this.canvasSize) 
         this.lights = []
+        this.win = false;
     },
     generateLights: function() {
         this.lights.push(new Light(this.ctx, this.canvasSize));
@@ -185,23 +200,18 @@ const catchTheLight = {
    
 
     gameOver: function() {
-        this.stop()
         
         document.getElementById("you-loose").style.position = "absolute"
         document.getElementById("you-loose").style.display = "block"
         document.getElementById("play-again-btn").style.display = "block"
-        const exit = document.getElementById("exit-btn").style.display = "block"
-        document.getElementById("play-again-btn").onclick =() =>{
-            
-            this.start()
-            
-        }
-        
-        
         
     },
     youWin: function(){
-
+        this.win = true;
+        this.lights = [];
+        document.getElementById("win").style.position = "absolute"
+        document.getElementById("win").style.display = "block"
+        document.getElementById("play-again-btn-win").style.display = "block"
     }
 
 }

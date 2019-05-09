@@ -15,15 +15,7 @@ body{
     margin: 0 auto;
     padding: 40px 20px 0 20px
 }
-
-
-.you-win{
-    display:none;
-    margin: 0 auto;
-    width: 375px;
-    height: 667;
-    
-}
+/* you loose */
 #you-loose {
     width: 100%;
     display: none;
@@ -31,16 +23,37 @@ body{
     padding: 40px 20px 0 20px
     
 }
-.exit-btn{
-    width: 75%;
-    margin: 0 auto;
+.game-over-logo{
+    width: 100%;
+    margin: 60px auto 0px auto;
 }
 .play-again-btn{
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
     
 }
 #gameOver-canvas{
+    width: 375px;
+    height: 667;
+}
+/* you win  */
+#win {
+    width: 100%;
+    display: none;
+    margin: 0 auto;
+    padding: 40px 20px 0 20px
+    
+}
+.you-win-logo{
+    width: 100%;
+    margin: 100px auto 0px auto;
+}
+.play-again-btn{
+    width: 100%;
+    margin: 0 auto;
+    
+}
+#win-canvas{
     width: 375px;
     height: 667;
 }
