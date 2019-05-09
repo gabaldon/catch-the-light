@@ -1,25 +1,53 @@
 window.onload = function() {
     
-    document.getElementById("start-button").onclick = function() {
+    document.getElementById("start-button").onclick = () => {
       document.getElementById("start-button").style.display = "none"
       document.getElementById("init").style.display = "none"
+      startGame()
     }
-      document.getElementById("play-again-btn").onclick =() =>{
-        document.getElementById("you-loose").style.display = "none"
+    document.getElementById("instructions-button").onclick =() =>{
+        console.log("Hola")
+        document.getElementById("instructions-finger-1").style.display= "block"
+        document.getElementById("instructions-finger-2").style.display = "none"
+        document.getElementById("instructions-finger-3").style.display= "none"
+        document.getElementById("init").style.display = "none"
+        setTimeout(() => {
+        document.getElementById("instructions-finger-1").style.display= "none"
+        document.getElementById("instructions-finger-2").style.display = "block"
+        document.getElementById("instructions-finger-3").style.display= "none"
+        document.getElementById("init").style.display = "none"
+        }, 
+        1000)
+        setTimeout(() => {
+        document.getElementById("instructions-finger-1").style.display= "none"
+        document.getElementById("instructions-finger-2").style.display = "none"
+        document.getElementById("instructions-finger-3").style.display= "block"
+        document.getElementById("init").style.display = "none"
+
+            }, 
+            4000)
+        setTimeout(() => {
+        startGame()
+            }, 
+            3000)
+    }
+    document.getElementById("play-again-btn").onclick =() =>{
+    document.getElementById("you-loose").style.display = "none"
+    catchTheLight.stop()
+    catchTheLight.init("mycanvas")
+    }
+    document.getElementById("play-again-btn-win").onclick =() =>{
+        document.getElementById("win").style.display = "none"
         catchTheLight.stop()
         catchTheLight.init("mycanvas")
-        }
-        document.getElementById("play-again-btn-win").onclick =() =>{
-            document.getElementById("win").style.display = "none"
-            catchTheLight.stop()
-            catchTheLight.init("mycanvas")
-        }
-      startGame()
+    }
+     
 };
 
 
 function startGame() {
     catchTheLight.init('mycanvas')
+    document.getElementById("instructions").style.display= "none"
 }
 const catchTheLight = {
     version: 1.0,

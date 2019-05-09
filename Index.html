@@ -14,6 +14,7 @@
     <title>Catch The Light</title>
 </head>
 <body>
+    <!-- start screen -->
     <div id ="init" class="container">
         <div class="row justify-content-center">
             <div class= "col">
@@ -22,13 +23,22 @@
         </div>
         <div class="row justify-content-center">
             <div class= "col">
+                
                 <img id= "start-button" class ="start-button" src="images/start-btn.svg" alt="start button">
+                <img id= "instructions-button" class ="instructions-button" src="images/instructions-btn.svg" alt="instructions button">
+                
             </div>
         </div>
-       
+    <!-- instructions -->
     </div>
-
-
+    <div id ="instructions">
+                    
+        <img id="instructions-finger-1" class="instructions" src="images/instructions-1.png" alt="instrucciones" >
+        <img id="instructions-finger-2" class="instructions" src="images/instructions-2.png" alt="instrucciones" >
+        <img id="instructions-finger-3" class="instructions" src="images/instructions-3.png" alt="instrucciones" >
+                 
+    </div>
+    <!-- you win screen -->
     <div id = "win-canvas">
         <div id="win" class="container">
             <div class="row justify-content-center">
@@ -43,7 +53,7 @@
         </div>       
     </div>
     </div>  
-
+    <!-- game over screen -->
     <div id = "gameOver-canvas">
     <div id ="you-loose" class="container">
             <div class="row justify-content-center">
@@ -58,7 +68,7 @@
             </div>       
     </div>
     </div>         
-   
+   <!-- canvas -->
     <div id="game-board">
         <canvas id="mycanvas"></canvas>
     </div>
