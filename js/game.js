@@ -1,5 +1,6 @@
 window.onload = function() {
     
+    //Game
     document.getElementById("start-button").onclick = () => {
       document.getElementById("start-button").style.display = "none"
       document.getElementById("init").style.display = "none"
@@ -7,6 +8,7 @@ window.onload = function() {
     }
     document.getElementById("instructions-button").onclick =() =>{
         console.log("Hola")
+        
         document.getElementById("instructions-finger-1").style.display= "block"
         document.getElementById("instructions-finger-2").style.display = "none"
         document.getElementById("instructions-finger-3").style.display= "none"
@@ -23,9 +25,8 @@ window.onload = function() {
         document.getElementById("instructions-finger-2").style.display = "none"
         document.getElementById("instructions-finger-3").style.display= "block"
         document.getElementById("init").style.display = "none"
-
             }, 
-            4000)
+            2000)
         setTimeout(() => {
         startGame()
             }, 

@@ -3,16 +3,14 @@ body{
     touch-action: manipulation
 }
 
+
+/* start screen */
 .start-button{
     width: 100%;
     display: block;
     margin: 0 auto;
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 1s;
-    transition-delay: 600ms;
+    
 }
-
 .logo-img{
     width: 100%;
     display: block;
@@ -23,15 +21,16 @@ body{
     width: 10%;
     display: inline-block;
     position: fixed;
-    bottom: 0;
-    
-    
+    bottom: 0;   
 }
 /* instruciones */
+
 #instructions{
     width: 375px;
     height: 667;
+    
 }
+
 #instructions-finger-1 {
     width: 100%;
     height: 100%;

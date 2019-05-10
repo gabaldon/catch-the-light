@@ -54,10 +54,9 @@ class Light{
          if (this.velX===0){
              this.velX === 1
          }
-        // this.posX += this.velX
+        
         this.posY += this.velY
-        // this.velY += this.gravity
-
+        
         if (this.posY <= 0 || this.posY > this.canvasSize.h - 100) this.changeY()
         if (this.posX <= 0 || this.posX > this.canvasSize.w - 100) this.changeX()
     }

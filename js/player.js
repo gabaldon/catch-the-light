@@ -17,10 +17,6 @@ class Player {
         this.w = 100
         this.h = 100
 
-        // this.playerRadio = this.w /2
-        // this.cx1 =  this.posX + (this.w/2)
-        // this.cy1 =  this.posY + (this.h/2)
-
         this.velX = 2
         this.velY = 1
 
@@ -46,9 +42,6 @@ class Player {
             else this.img.src = "./images/pink-neon-circle.svg"
         }
        
-        //change player image when almost game is over
-      
-
         this.ctx.drawImage(this.img, this.posX, this.posY, this.w, this.h)
     }
 
@@ -66,11 +59,6 @@ class Player {
         else this.directionX = "R"
     }
 
-    // speedUp() {
-    //     this.velX *= 1.1
-    //     this.velY *= 1.1
-    // }
-    
     goUp() {
         this.posY -= 20
 
@@ -81,23 +69,13 @@ class Player {
        
         this.posX += 20
         if (this.directionX === "L") this.changeX()
-        // if (this.posX <= 0 || this.posX > this.canvasSizes.w - 100) this.changeX()
+        
     }
     goLeft(){
         this.posX -= 20
         if (this.directionX === "R") this.changeX()
-        // if (this.posX <= 0 || this.posX > this.canvasSizes.w - 100) this.changeX()
+        
     }
-
-    // speedDown() {
-    //     this.velX *= .9
-    //      this.velY *= .9
-    // }
-
-    // bounceNow() {
-    //     this.changeX()
-    //     this.changeY()
-    // }
 
     addGravity() {
         this.gravity *= 1.1
