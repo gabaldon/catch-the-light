@@ -32,24 +32,53 @@ body{
 }
 
 #instructions-finger-1 {
-    width: 100%;
+    width: 104%;
     height: 100%;
     display: none;
-    
+    animation: shimmy1 4s infinite;
+  animation-direction: alternate;
 }
+
+@keyframes shimmy1 {
+  0% {
+    transform: translate(0, 0);    
+  }
+  100% {
+    transform: translate(-10px, -20px);
+  }
+}
+    
 #instructions-finger-2 {
-    width: 100%;
+    width: 103%;
     height: 100%;
     display: none;
-    
+    animation: shimmy2 4s infinite;
+  animation-direction: alternate;
     
 }
+@keyframes shimmy2 {
+    0% {
+      transform: translate(0, 10);    
+    }
+    100% {
+      transform: translate(0px, -20px);
+    }
+  }
 #instructions-finger-3 {
-    width: 100%;
+    width: 103%;
     height: 100%;
     display: none;
-    
+    animation: shimmy3 4s infinite;
+  animation-direction: alternate;
 }
+@keyframes shimmy3 {
+    0% {
+      transform: translate(-5, -5);    
+    }
+    100% {
+      transform: translate(10px, 20px);
+    }
+  }
 /* you loose */
 #you-loose {
     width: 100%;

@@ -19,18 +19,18 @@ window.onload = function() {
         document.getElementById("instructions-finger-3").style.display= "none"
         document.getElementById("init").style.display = "none"
         }, 
-        1000)
+        2000)
         setTimeout(() => {
         document.getElementById("instructions-finger-1").style.display= "none"
         document.getElementById("instructions-finger-2").style.display = "none"
         document.getElementById("instructions-finger-3").style.display= "block"
         document.getElementById("init").style.display = "none"
             }, 
-            2000)
+            4000)
         setTimeout(() => {
         startGame()
             }, 
-            3000)
+            6000)
     }
     document.getElementById("play-again-btn").onclick =() =>{
     document.getElementById("you-loose").style.display = "none"
